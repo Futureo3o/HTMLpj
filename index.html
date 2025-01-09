@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>응급처치 정보 검색</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>응급처치 정보 검색</h1>
+    <p>위급 상황에서 필요한 응급처치 방법을 빠르게 찾아보세요.</p>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <input type="text" id="search" placeholder="검색어를 입력하세요.">
+      <button onclick="searchInfo()">검색</button>
+    </section>
+
+    <section class="popular-section">
+      <h2>자주 찾는 응급처치 방법</h2>
+      <div class="emergency-cards">
+        <div class="card" onclick="searchInfo('심폐소생술')">
+          <div class="card_img_wrap">
+            <img src="/img/cpr.jpg" alt="심폐소생술">
+          </div>
+          <h3>심폐소생술 (CPR)</h3>
+        </div>
+        <div class="card" onclick="searchInfo('하임리히법')">
+          <div class="card_img_wrap">
+            <img src="/img/Heimlich.png" alt="하임리히법">
+          </div>
+          <h3>하임리히법</h3>
+        </div>
+        <div class="card" onclick="searchInfo('화상')">
+          <div class="card_img_wrap">
+            <img src="/img/scald.png" alt="화상">
+          </div>
+          <h3>화상</h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="result-section">
+      <!-- 검색 결과가 여기에 표시됩니다. -->
+    </section>
+  </main>
+
+  <footer>
+    <p>Copyright 2024. 김쀼처. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function searchInfo(query = '') {
+      if (!query) {
+        query = document.getElementById('search').value;
+      }
+      if (query) {
+        document.getElementById('result-section').innerHTML = `<p>'${query}'에 대한 검색 결과를 불러오고 있습니다...</p>`;
+        // API를 사용한 실제 검색 결과 표시 코드 추가 필요
+      } else {
+        alert('검색어를 입력해주세요.');
+      }
+    }
+  </script>
+</body>
+</html>
